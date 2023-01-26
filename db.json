@@ -1,0 +1,40 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "productName": "samsung As04",
+      "productImage": "https://www.91-img.com/pictures/150355-v4-samsung-galaxy-a04-mobile-phone-large-1.jpg?tr=q-80",
+      "productCategory": "Electronics",
+      "productPrice": "13999",
+      "productRating": "3"
+    },
+    {
+      "id": 2,
+      "productName": "Chaturthi flower",
+      "productImage": "https://fiorellaindia.com/wp-content/uploads/2021/08/WhatsApp-Image-2021-09-01-at-01.07.01.jpeg",
+      "productCategory": "Decoration",
+      "productPrice": "50000",
+      "productRating": "4"
+    },
+    {
+      "id": 3,
+      "productName": "19 PCs Kids Toys Set ",
+      "productImage": "https://m.media-amazon.com/images/I/81-wFaHyRzL._SX522_.jpg",
+      "productCategory": "Toys",
+      "productPrice": "1200",
+      "productRating": "4"
+    },
+    {
+      "id": 4,
+      "productName": "Lenovo IdeaPad",
+      "productImage": "https://m.media-amazon.com/images/I/41PnIUzyYML._SX300_SY300_QL70_FMwebp_.jpg",
+      "productCategory": "Electronics",
+      "productPrice": "340000",
+      "productRating": "4"
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}
