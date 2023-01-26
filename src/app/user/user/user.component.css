@@ -1,0 +1,12 @@
+.card{
+  width: 16rem;
+  height: 6%;
+  display: inline-block;
+  margin: 6px;
+  padding: 6px;
+  box-sizing: border-box;}
+
+  ngb-rating{
+    color: rgb(211, 211, 59);
+    font-size: 25px;
+  }

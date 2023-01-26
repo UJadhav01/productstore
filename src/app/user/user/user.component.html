@@ -1,0 +1,39 @@
+<nav class="navbar navba-light bg-primary" style="top: 7vh;">
+  <div class="container-fluid">
+    <h1 style="color:white">Product Store</h1>
+    <div class="d-flex">
+      <button *ngIf="authenticated" style="margin-right:20px;"
+      type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Add Products</button>
+    </div>
+  </div>
+</nav>
+  <div  *ngFor="let product of productData | paginate
+  :{
+    itemsPerPage:tableSize,
+    currentPage:page,
+    totalItems:count
+    };let i=index">
+  <div class="card" style="display: flex;float: left;top:15vh ; box-sizing: border-box;">
+    <img src="{{product.productImage}} " height="250px" width="200px" class="card-img-top">
+    <div class="card-body">
+      <h2 class="card-title">{{product.productName}}</h2>
+      <p class="card-text">{{product.productCategory}}</p>
+      <p class="card-text">{{product.productPrice}}</p>
+      <p class="card-text">
+      <ngb-rating [max]="5" formControlName="ratingcontrol" >{{product.productRating}}</ngb-rating>
+
+
+    </p>
+    </div>
+
+  </div>
+</div>
+
+<div class="container">
+  <pagination-controls
+  previousLabel="Prev"
+  nextLabel="Next"
+  (pageChange)="onTableDataChange($event)"
+  ></pagination-controls>
+</div>
