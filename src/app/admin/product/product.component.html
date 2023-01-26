@@ -1,0 +1,132 @@
+<nav class="navbar navba-light bg-primary" style="top: 7vh;">
+  <div class="container-fluid">
+    <h1 style="color:white">Product Store</h1>
+    <div class="d-flex">
+      <button style="margin-right:20px;"
+      type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Add Products</button>
+    </div>
+  </div>
+</nav>
+<br><br><br><br>
+<table class="table table-bordered">
+  <thead class="thead-dark">
+      <tr>
+        <th>Product ID</th>
+        <th>Product Name</th>
+        <th>Product Image</th>
+        <th>Product Category</th>
+        <th>Product Price</th>
+        <th>Product Rating</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of productData | paginate
+      :{
+        itemsPerPage:tableSize,
+        currentPage:page,
+        totalItems:count
+        };let i=index">
+        <td>{{product.id}}</td>
+        <td>{{product.productName}}</td>
+        <td>{{product.productImage}}</td>
+        <td>{{product.productCategory}}</td>
+        <td>{{product.productPrice}}</td>
+        <td>
+          <ngb-rating [max]="5" >{{product.productRating}}</ngb-rating>
+        </td>
+        <td>
+
+          <button type="button" style="color: aliceblue;" (click)="onEditProduct(product)" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>
+          <button (click)="deleteProduct(product.id)" class="btn btn-danger mx-3">Delete</button>
+        </td>
+
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <pagination-controls
+    previousLabel="Prev"
+    nextLabel="Next"
+    (pageChange)="onTableDataChange($event)"
+    ></pagination-controls>
+  </div>
+
+
+
+<!-- Modal for form data -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel">Add Product Details</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+            <form [formGroup]="productForm">
+              <div class="form-group mb-3">
+                <label class="form-label">Product Name :</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Product Name"
+                  formControlName="productName"
+                />
+              </div>
+
+              <div class="form-group mb-3">
+                <label class="form-label">Product Image :</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Product Name"
+                  formControlName="productImage"
+                />
+              </div>
+
+              <div class="form-group mb-3">
+                <label class="form-label">Product Category :</label>
+                <input
+                  type="text"
+                  class=" form-control"
+                  placeholder="Product category"
+                  formControlName="productCategory"
+                />
+              </div>
+              <div class=" form-group mb-3">
+                <label class="form-label">Product Price :</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Product price"
+                  formControlName="productPrice"
+                />
+              </div>
+              <div class=" form-group mb-3">
+                <label class="form-label">Product Rating :</label>
+                <ngb-rating type="rating-input" [max]="5" formControlName="rating" formControlName="productRating" class="form-control"
+                placeholder="Product rating from 1-5"
+                ></ngb-rating>
+              </div>
+            </form>
+          </div >
+
+          <div class="modal-footer">
+            <div class="mb-3">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal"  id="cancel">Cancel</button>
+              <button style="margin-left: 10px;" type="button" class="btn btn-success" (click)="postProductDetails()">
+                Add Product
+              </button>
+              <button style="margin-left: 10px;" type="button" class="btn btn-success" (click)="updateProductDetails()">
+                Update Product
+              </button>
+            </div>
+          </div>
+
+
+      </div>
+    </div>
+
+
+
